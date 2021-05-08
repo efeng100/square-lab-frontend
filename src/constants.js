@@ -4,7 +4,7 @@ function getBackendURL() {
 	if (window.location.hostname.indexOf('localhost') !== -1) {
 		return 'http://localhost:5000';
 	} else {
-		return '';
+		return 'https://square-lab.herokuapp.com';
 	}
 }
 
