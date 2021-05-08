@@ -1,0 +1,39 @@
+body {
+    /* background-color: lightcyan; */
+}
+
+.form-close-button {
+    display: block;
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    width: 1.2rem;
+    padding: 0.2rem;
+}
+
+.clickable {
+    cursor: pointer;
+}
+
+.tile {
+    width: 7rem;
+    height: 7rem;
+    display: block;
+    border: 1px solid rgb(180, 180, 180);
+}
+
+.tile-dark {
+    background-color: black;
+}
+
+.tile-light {
+    background-color: white;
+}
+
+.tile-red {
+    background-color: rgb(220, 53, 69);
+}
+
+.score-submission-modal {
+    max-width: 25rem !important;
+}
