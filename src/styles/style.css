@@ -5,6 +5,7 @@
     right: 1.5rem;
     width: 1.2rem;
     padding: 0.2rem;
+    cursor: pointer;
 }
 
 .clickable {
@@ -31,5 +32,5 @@
 }
 
 .score-submission-modal {
-    max-width: 25rem !important;
+    max-width: 35rem !important;
 }
