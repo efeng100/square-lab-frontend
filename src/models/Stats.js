@@ -7,7 +7,7 @@ const IMAGE_CHARTS_URL = 'https://image-charts.com/chart.js/2.8.0';
 const QUICK_CHART_URL = 'https://quickchart.io/chart';
 
 const SPRINT_INTERVALS = 20;
-const SPRINT_INCREMENT = 3;
+const SPRINT_INCREMENT = 1;
 
 const ULTRA_INTERVALS = 10;
 const ULTRA_INCREMENT = 25;
