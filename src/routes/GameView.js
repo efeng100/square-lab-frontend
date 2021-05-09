@@ -142,7 +142,7 @@ function GameView() {
 
   const restartButtonTooltip = (props) => (
     <Tooltip {...props} className='ms-2'>
-      Press R
+      Press R or Space
     </Tooltip>
   );
 
@@ -155,7 +155,7 @@ function GameView() {
   };
 
   const handleRestartKey = (event) => {
-    if (event.code === 'KeyR') {
+    if (event.code === 'KeyR' || event.code === 'Space') {
       closeScoreSubmission();
       handleRestart();
     }
