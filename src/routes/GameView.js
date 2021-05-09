@@ -156,6 +156,7 @@ function GameView() {
 
   const handleRestartKey = (event) => {
     if (event.code === 'KeyR') {
+      closeScoreSubmission();
       handleRestart();
     }
   };
