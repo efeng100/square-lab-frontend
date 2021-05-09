@@ -8,6 +8,8 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
+import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
+import Tooltip from 'react-bootstrap/Tooltip';
 
 import { GameMode, ULTRA_TIME_LIMIT, SIZES } from '../constants';
 import Game from '../models/Game';
@@ -46,6 +48,12 @@ function GameView() {
   useEffect(() => {
     game.onStart(handleStart);
     game.onEnd(handleEnd);
+
+    document.addEventListener('keydown', handleRestartKey);
+
+    return () => {
+      document.removeEventListener('keydown', handleRestartKey);
+    };
   }, []);
 
   const getModeName = (mode) => {
@@ -132,12 +140,24 @@ function GameView() {
     setShowScoreSubmission(true);
   };
 
+  const restartButtonTooltip = (props) => (
+    <Tooltip {...props} className='ms-2'>
+      Press R
+    </Tooltip>
+  );
+
   const handleRestart = () => {
     game.setupNewGame();
     updateGame(game);
     updateGameState(game.getGameState());
     timerRef.current.stop();
     timerRef.current.reset();
+  };
+
+  const handleRestartKey = (event) => {
+    if (event.code === 'KeyR') {
+      handleRestart();
+    }
   };
 
   const handleUltraTimerStop = () => {
@@ -258,7 +278,13 @@ function GameView() {
       </Row>
       <Row className='justify-content-md-center my-3'>
         <Col md='auto'>
-          <Button variant="info" onClick={handleRestart} style={{color: 'white'}}>Restart</Button>
+          <OverlayTrigger
+            placement="right"
+            delay={{ show: 250, hide: 400 }}
+            overlay={restartButtonTooltip}
+          >
+            <Button variant="info" onClick={handleRestart} style={{color: 'white'}}>Restart</Button>
+          </OverlayTrigger>
         </Col>
       </Row>
     </Container>
